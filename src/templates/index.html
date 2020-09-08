@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block content %}
+    <h1>Index</h1>
+
+    {% if not logged_in %}
+        <ul>
+            <li><a href="{{ url_for('login') }}">Log in</a></li>
+        </ul>
+    {% else %}
+        <p>
+            You are logged in as {{ name }} (<a href="{{ url_for('logout') }}">Log out</a>)
+        </p>
+        <ul>
+            <li><a href="{{ url_for('measurement-list') }}">Measurement list</a></li>
+            <li><a href="{{ url_for('measurement-summary') }}">Measurement summary</a></li>
+            <li><a href="{{ url_for('ggo-list') }}">GGO list</a></li>
+            <li><a href="{{ url_for('ggo-summary') }}">GGO summary</a></li>
+            <li><a href="{{ url_for('environment-declaration') }}">Environment declaration</a></li>
+        </ul>
+    {% endif %}
+{% endblock %}

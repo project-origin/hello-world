@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}
+    GGO list
+{% endblock %}
+
+{% block content %}
+    <h1>GGO list</h1>
+
+    <p>
+        <a href="{{ url_for('index') }}">Go to index</a>
+    </p>
+
+    <table cellpadding="8" cellspacing="2">
+        <tr>
+            <th>Begin</th>
+            <th>Sector</th>
+            <th>Amount</th>
+            <th>Technology</th>
+            <th>Address</th>
+        </tr>
+        {% for ggo in ggos %}
+            <tr style="background: #F1F1F1;">
+                <td>{{ ggo.begin }}</td>
+                <td>{{ ggo.sector }}</td>
+                <td>{{ ggo.amount }} Wh</td>
+                <td>{{ ggo.technology }}</td>
+                <td>{{ ggo.address }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
